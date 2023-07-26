@@ -3,43 +3,44 @@ import 'package:tmdb/core/config/network_config.dart';
 
 mixin DioCatchException {
   NetworkExceptionResponse catchError(DioException e) {
-    if (e.response!.statusCode == 400) {
-      return NetworkExceptionResponse(exception: "Bad Request");
-    } else if (e.response!.statusCode == 404) {
+    if (e.response?.statusCode == 400) {
       return NetworkExceptionResponse(
-        exception: "Not found",
+          exception: e.response!.statusMessage.toString());
+    } else if (e.response?.statusCode == 404) {
+      return NetworkExceptionResponse(
+        exception: e.response!.statusMessage.toString(),
       );
-    } else if (e.response!.statusCode == 409) {
+    } else if (e.response?.statusCode == 409) {
       return NetworkExceptionResponse(
-        exception: "Conflict",
+        exception: e.response!.statusMessage.toString(),
       );
-    } else if (e.response!.statusCode == 403) {
+    } else if (e.response?.statusCode == 403) {
       return NetworkExceptionResponse(
-        exception: "Forbidden",
+        exception: e.response!.statusMessage.toString(),
       );
-    } else if (e.response!.statusCode == 401) {
+    } else if (e.response?.statusCode == 401) {
       return NetworkExceptionResponse(
-        exception: "Unauthorized",
+        exception: e.response!.statusMessage.toString(),
       );
-    } else if (e.response!.statusCode == 500) {
+    } else if (e.response?.statusCode == 500) {
       return NetworkExceptionResponse(
-        exception: "Internal server error",
+        exception: e.response!.statusMessage.toString(),
       );
-    } else if (e.response!.statusCode == 501) {
+    } else if (e.response?.statusCode == 501) {
       return NetworkExceptionResponse(
-        exception: "Not implemented",
+        exception: e.response!.statusMessage.toString(),
       );
-    } else if (e.response!.statusCode == 502) {
+    } else if (e.response?.statusCode == 502) {
       return NetworkExceptionResponse(
-        exception: "Bad gateway",
+        exception: e.response!.statusMessage.toString(),
       );
-    } else if (e.response!.statusCode == 503) {
+    } else if (e.response?.statusCode == 503) {
       return NetworkExceptionResponse(
-        exception: "Service  unavailable",
+        exception: e.response!.statusMessage.toString(),
       );
-    } else if (e.response!.statusCode == 504) {
+    } else if (e.response?.statusCode == 504) {
       return NetworkExceptionResponse(
-        exception: "Gateway timeout",
+        exception: e.response!.statusMessage.toString(),
       );
     } else {
       switch (e.type) {
