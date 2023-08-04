@@ -8,6 +8,7 @@ class DarkMode {
 
   // text styles
   static TextStyle primaryStyle = TextStyle(color: primary);
+  static TextStyle titleStyle = TextStyle(color: primary,fontSize: 20);
 
   // widget styles
   static ThemeData theme = ThemeData(scaffoldBackgroundColor: neutral);

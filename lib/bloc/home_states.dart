@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tmdb/core/config/network_config.dart';
 import 'package:tmdb/model/discover_movies_model.dart';
 import 'package:tmdb/model/genres_model.dart';
+import 'package:tmdb/model/upcoming_movies_model.dart';
 import 'package:tmdb/service/discover/movies_list_service.dart';
 import 'package:tmdb/service/genres/movie_genres_service.dart';
 
@@ -27,5 +28,10 @@ class HomeErrorState extends HomeStates {
 class HomeSuccessState extends HomeStates {
   GenresModel genres;
   DiscoverMoviesModel movies;
-  HomeSuccessState({required this.movies,required this.genres});
+  UpcomingMoviesModel upcomingMovies;
+  DiscoverMoviesModel topMovies;
+  HomeSuccessState(
+      {required this.movies,
+      required this.genres,
+      required this.upcomingMovies,required this.topMovies});
 }

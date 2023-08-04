@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tmdb/view/home_page.dart';
-import 'package:tmdb/view/splash_screen.dart';
+import 'package:tmdb/view/home/home_page.dart';
+import 'package:tmdb/view/screens/currenct_screen.dart';
+import 'package:tmdb/view/screens/splash_screen.dart';
 
 class RouteGeneretor {
   // *****
@@ -17,8 +18,8 @@ class RouteGeneretor {
     switch (settings.name) {
       case "splash":
         return _navigate(const SplashScreen());
-      case "/":
-        return _navigate(const HomePage());
+      case "current":
+        return _navigate(const CurrentScreen());
       // default route Home page
       default:
         return _navigate(const HomePage());
