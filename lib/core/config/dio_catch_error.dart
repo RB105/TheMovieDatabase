@@ -3,7 +3,7 @@ import 'package:tmdb/core/config/network_config.dart';
 
 mixin DioCatchException {
   NetworkExceptionResponse catchError(DioException e) {
-    if (e.response!.statusCode! > 400 && e.response!.statusCode! < 599) {
+    if (e.response?.statusCode! != null && e.response!.statusCode! > 400 && e.response!.statusCode! < 599) {
       return NetworkExceptionResponse(
           exception: e.response!.statusMessage.toString());
     } else {
